@@ -15,7 +15,7 @@ import os
 # Module for reading CSV files
 import csv
 
-csvpath = os.path.join('..', 'PyBank', 'budget_data.txt')
+csvpath = os.path.join(".","python-challenge","PythonChallenges","PyBank",'budget_data.csv')
 
 # # Method 1: Plain Reading of CSV files
 # with open(csvpath, 'r') as file_handler:
