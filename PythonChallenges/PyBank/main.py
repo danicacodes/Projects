@@ -61,22 +61,27 @@ with open(output_path,'w', newline='') as csvfile:
     # Initiate csv.writer
     csvwriter = csv.writer(csvfile, delimiter=',')
 
-    # Write the first row (column headers)
-    csvwriter.writerow(['Financial Analysis'])
+    #Write first row - Header
+    csvwriter.writerow(["Financial Analysis"])
 
-    # Write the second row 
-    csvwriter.writerow(f"Total Months: {len(total_months)}")
+    # Write second Row - Dotted Line
+    csvwriter.writerow(['----------------------------'])
 
-    # Write the third row
-    csvwriter.writerow(f"Total: ${sum(total_profit)}")
+    # Write the third row - Headers
+    csvwriter.writerow(["Total Months: ", 
+        "Total: $",
+        "Average Change: $",
+        "Greatest Increase in Profits: $",
+        "Greatest Decrease in Profits: $"])
+    
+    # Write the fourth row - Data
+    csvwriter.writerow([
+        len(total_months),
+        sum(total_profit),
+        round(sum(monthly_change)/len(monthly_change),2),
+        max(monthly_change),
+        min(monthly_change)
+    ])
 
-    # Write the forth row
-    csvwriter.writerow(f"Average Change: ${round(sum(monthly_change)/len(monthly_change),2)}")
-
-    # Write the fifth row
-    csvwriter.writerow(f"Greatest Increase in Profits: ${(str(max_increase_change))}")
-
-    # Write the sixth row
-    csvwriter.writerow(f"Greatest Decrease in Profits: ${(str(max_decrease_change))}")
-
+    
 
