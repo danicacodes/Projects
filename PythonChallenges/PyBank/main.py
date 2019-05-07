@@ -31,12 +31,20 @@ with open(csvpath, newline='') as csvfile:
     # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
 
-    print(csvreader)
-
-    # Read the header row first (skip this step if there is now header)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    total = 0
+    for row in csv.reader(csvfile):
+        total += int(row[1])
+    #print(total)
+    #print(csvreader)
+    # Read the header row first
+    #print(f"CSV Header: {csv_header}")
 
-    # Read each row of data after the header
-    for row in csvreader:
-        print(row)
+# -----------------------------------------------------------------------
+# Print Summary
+print("Financial Analysis")
+print("------------------------")
+print(f"Total: ${str(total)}")
+print("Average Change: ")
+print("Greatest Increase in Profits: ")
+print("Greatest Decrease in Profits: ")
