@@ -14,7 +14,7 @@ import csv
 
 csvpath = os.path.join(".","python-challenge","PythonChallenges","PyPoll",'election_data.csv')
 
-# Create Lists
+# Create all variables
 total_votes = 0
 khan_votes = 0
 correy_votes = 0
@@ -24,22 +24,22 @@ otooley_votes = 0
 with open(csvpath, newline='') as csvfile:
 
     # CSV reader specifies delimiter and variable that holds contents
-    csvreader = csv.reader(csvfile, delimiter=',')
+    csvreader = csv.reader(csvfile, delimiter=",")
     
     #Skip the header
     csv_header = next(csvreader)
 
     for row in csvreader:
         total_votes +=1
+        if row[2] == "Khan":
+            khan_votes +=1
+        elif row[2] == "Correy":
+            correy_votes +=1
+        elif row[2] == "Li":
+            li_votes +=1
+        elif row[2] == "O'Tooley":
+            otooley_votes +=1
 
-    if row[2] == "Khan":
-        khan_votes +=1
-    elif row[2] == "Correy":
-        correy_votes +=1
-    elif row[2] == "Li":
-        li_votes +=1
-    elif row[2] == "O'Tooley":
-        otooley_votes +=1
 
 # Print Election Results
 print("Election Results")
