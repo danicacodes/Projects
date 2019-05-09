@@ -40,7 +40,7 @@ with open(csvpath, newline='') as csvfile:
         elif row[2] == "O'Tooley":
             otooley_votes +=1
 
-
+# Something new :)
 # Print Election Results
 print("Election Results")
 print("-----------------------------------------")
