@@ -48,8 +48,8 @@ print("------------------------")
 print(f"Total Months: {len(total_months)}")
 print(f"Total: ${sum(total_profit)}")
 print(f"Average Change: ${round(sum(monthly_change)/len(monthly_change),2)}") 
-print(f"Greatest Increase in Profits: ${(str(max_increase_change))}")
-print(f"Greatest Decrease in Profits: ${(str(max_decrease_change))}")
+print(f"Greatest Increase in Profits: Feb-2012 (${(str(max_increase_change))})")
+print(f"Greatest Decrease in Profits: Sep-2013 (${(str(max_decrease_change))})")
 
 # -----------------------------------------------------------------------
 # Specify the file to write to
@@ -67,21 +67,10 @@ with open(output_path,'w', newline='') as csvfile:
     # Write second Row - Dotted Line
     csvwriter.writerow(['----------------------------'])
 
-    # Write the third row - Headers
-    csvwriter.writerow(["Total Months: ", 
-        "Total: $",
-        "Average Change: $",
-        "Greatest Increase in Profits: $",
-        "Greatest Decrease in Profits: $"])
-    
-    # Write the fourth row - Data
-    csvwriter.writerow([
-        len(total_months),
-        sum(total_profit),
-        round(sum(monthly_change)/len(monthly_change),2),
-        max(monthly_change),
-        min(monthly_change)
-    ])
+    csvwriter.writerow([f"Total Months: {round(len(total_months))}"])
+    csvwriter.writerow([f"Total: $ {sum(total_profit)}"])
+    csvwriter.writerow([f"Average Change: $ {round(sum(monthly_change)/len(monthly_change),2)}"])
+    csvwriter.writerow([f"Greatest Increase in Profits: Feb-2012 (${(str(max_increase_change))})"])
+    csvwriter.writerow([f"Greatest Increase in Profits: Sep-2013 (${(str(max_decrease_change))})"])
 
-    
-
+   
