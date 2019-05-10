@@ -42,25 +42,34 @@ with open(csvpath, newline='') as csvfile:
             otooley_votes +=1
 
     # Percent of votes per candidate
-    percent_khan = (khan_votes/total_votes)*100
-    percent_correy = (correy_votes/total_votes)*100
-    percent_li = (li_votes/total_votes)*100
-    percent_otooley = (otooley_votes/total_votes)*100
+    percent_khan = (khan_votes/total_votes)
+    percent_correy = (correy_votes/total_votes)
+    percent_li = (li_votes/total_votes)
+    percent_otooley = (otooley_votes/total_votes)
 
     candidate_results = [khan_votes, correy_votes, li_votes, otooley_votes]
     winner = max(candidate_results)
+
+    if winner == khan_votes:
+        winner_name = "Khan"
+    elif winner == correy_votes:
+        winner_name = "Correy"
+    elif winner == li_votes:
+        winner_name = "Li"
+    else:
+        winner_name = "O'Tooley"
 
 # Print Election Results
 print("Election Results")
 print("-----------------------------------------")
 print(f"Total Votes: {total_votes}")
 print("-----------------------------------------")
-print(f"Khan: {(round(percent_khan))}% {khan_votes}")
-print(f"Correy: {(round(percent_correy))}% {correy_votes}")
-print(f"Li: {(round(percent_li))}% {li_votes}")
-print(f"O'Tooley: {(round(percent_otooley))}% {otooley_votes}")
+print(f"Khan: {percent_khan:.3%} {khan_votes}")
+print(f"Correy: {percent_correy:.3%} {correy_votes}")
+print(f"Li: {percent_li:.3%}% {li_votes}")
+print(f"O'Tooley: {percent_otooley:.3%}% {otooley_votes}")
 print("-----------------------------------------")
-print(f"Winner: Khan with {khan_votes} votes")
+print(f"Winner: {winner_name} with {winner} votes")
 print("-----------------------------------------")
 
 # -----------------------------------------------------------------------
@@ -82,12 +91,12 @@ with open(output_path,'w', newline='') as csvfile:
     csvwriter.writerow(['----------------------------'])
     
     #Write Candidate Results
-    csvwriter.writerow([f"Khan: {(round(percent_khan))}% ({khan_votes})"])
-    csvwriter.writerow([f"Correy: {(round(percent_correy))}% ({correy_votes})"])
-    csvwriter.writerow([f"Li: {(round(percent_li))}% ({li_votes})"])
-    csvwriter.writerow([f"O'Tooley: {(round(percent_otooley))}% ({otooley_votes})"])
+    csvwriter.writerow([f"Khan: {percent_khan:.3%} ({khan_votes})"])
+    csvwriter.writerow([f"Correy: {percent_correy:.3%} ({correy_votes})"])
+    csvwriter.writerow([f"Li: {percent_li:.3%} ({li_votes})"])
+    csvwriter.writerow([f"O'Tooley: {percent_otooley:.3%} ({otooley_votes})"])
     csvwriter.writerow(['----------------------------'])
 
     #Write Winner
-    csvwriter.writerow([f"Winner: Khan with {khan_votes} votes"])
+    csvwriter.writerow([f"Winner: {winner_name} with {winner} votes"])
     csvwriter.writerow(['----------------------------'])
