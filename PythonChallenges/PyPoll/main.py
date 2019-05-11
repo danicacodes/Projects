@@ -74,29 +74,29 @@ print("-----------------------------------------")
 
 # -----------------------------------------------------------------------
 # Specify the file to write to
-output_path = os.path.join(".","python-challenge","PythonChallenges","PyPoll",'ElectionResults.csv')
+# output_path = os.path.join(".","python-challenge","PythonChallenges","PyPoll",'ElectionResults.csv')
 
 # Open the file using "write" mode. Specify the variable to hold the contents
-with open(output_path,'w', newline='') as csvfile:
+with open('python-challenge\PythonChallenges\PyPoll\ElectionResults.txt','w') as outfile:
     
     # Initiate csv.writer
-    csvwriter = csv.writer(csvfile, delimiter=',')
+    # csvwriter = csv.writer(csvfile, delimiter=',')
 
     #Write first row - Election Results
-    csvwriter.writerow(["Election Results"])
-    csvwriter.writerow(['----------------------------'])
+    print(["Election Results"], file=outfile)
+    print(['----------------------------'], file=outfile)
     
     # Write Total Votes
-    csvwriter.writerow([f"Total Votes: {total_votes}"])
-    csvwriter.writerow(['----------------------------'])
+    print([f"Total Votes: {total_votes}"], file=outfile)
+    print(['----------------------------'], file=outfile)
     
     #Write Candidate Results
-    csvwriter.writerow([f"Khan: {percent_khan:.3%} ({khan_votes})"])
-    csvwriter.writerow([f"Correy: {percent_correy:.3%} ({correy_votes})"])
-    csvwriter.writerow([f"Li: {percent_li:.3%} ({li_votes})"])
-    csvwriter.writerow([f"O'Tooley: {percent_otooley:.3%} ({otooley_votes})"])
-    csvwriter.writerow(['----------------------------'])
+    print([f"Khan: {percent_khan:.3%} ({khan_votes})"], file=outfile)
+    print([f"Correy: {percent_correy:.3%} ({correy_votes})"], file=outfile)
+    print([f"Li: {percent_li:.3%} ({li_votes})"], file=outfile)
+    print([f"O'Tooley: {percent_otooley:.3%} ({otooley_votes})"], file=outfile)
+    print(['----------------------------'], file=outfile)
 
     #Write Winner
-    csvwriter.writerow([f"Winner: {winner_name} with {winner} votes"])
-    csvwriter.writerow(['----------------------------'])
+    print([f"Winner: {winner_name} with {winner} votes"], file=outfile)
+    print(['----------------------------'], file=outfile)

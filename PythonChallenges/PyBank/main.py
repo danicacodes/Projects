@@ -33,7 +33,7 @@ with open(csvpath, newline='') as csvfile:
     # Go through file and add all the numbers in the second column to get Total Net Profit for entire data set
     csv_header = next(csvreader)
     for row in csv.reader(csvfile):
-        months = months + 1
+        months = months + 1  #Used for Total Months
         # profit = profit + int(row[1])
 
         total_months.append(row[0]) 
@@ -70,24 +70,25 @@ print(f"Greatest Decrease in Profits: {(total_months[min_position])} (${(str(max
 
 # -----------------------------------------------------------------------
 # Specify the file to write to
-output_path = os.path.join(".","python-challenge","PythonChallenges","PyBank",'FinancialAnalysisSummary.csv')
+# output_path = os.path.join(".","python-challenge","PythonChallenges","PyBank",'FinancialAnalysisSummary.txt')
 
 # Open the file using "write" mode. Specify the variable to hold the contents
-with open(output_path,'w', newline='') as csvfile:
+with open('python-challenge\PythonChallenges\PyBank\FinancialAnalysisSummary.txt','w') as outfile:
     
-    # Initiate csv.writer
-    csvwriter = csv.writer(csvfile, delimiter=',')
+    # # Initiate csv.writer
+    # csvwriter = csv.writer(csvfile, delimiter=',')
 
-    #Write first row - Header
-    csvwriter.writerow(["Financial Analysis"])
+    #Write Header
+    print('----------------------------', file=outfile)
+    print(["Financial Analysis"], file=outfile)
 
     # Write second Row - Dotted Line
-    csvwriter.writerow(['----------------------------'])
+    print('----------------------------', file=outfile)
 
-    csvwriter.writerow([f"Total Months: {round(len(total_months))}"])
-    csvwriter.writerow([f"Total: $ {sum(total_profit)}"])
-    csvwriter.writerow([f"Average Change: $ {round(sum(monthly_change)/len(monthly_change),2)}"])
-    csvwriter.writerow([f"Greatest Increase in Profits: {(total_months[max_position])} (${(str(max_increase_change))})"])
-    csvwriter.writerow([f"Greatest Increase in Profits: {(total_months[min_position])} (${(str(max_decrease_change))})"])
+    print([f"Total Months: {round(len(total_months))}"], file=outfile)
+    print([f"Total: $ {sum(total_profit)}"], file=outfile)
+    print([f"Average Change: $ {round(sum(monthly_change)/len(monthly_change),2)}"], file=outfile)
+    print([f"Greatest Increase in Profits: {(total_months[max_position])} (${(str(max_increase_change))})"], file=outfile)
+    print([f"Greatest Increase in Profits: {(total_months[min_position])} (${(str(max_decrease_change))})"], file=outfile)
 
    
