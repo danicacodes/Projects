@@ -41,6 +41,7 @@ with open(csvpath, newline='') as csvfile:
     # In the monthly change list, find max and min of monthly change value
     max_increase_change = max(monthly_change)
     max_decrease_change = min(monthly_change)
+
 # -----------------------------------------------------------------------
 # Print Financial Analysis Summary
 print("Financial Analysis")
