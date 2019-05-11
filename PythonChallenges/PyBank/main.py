@@ -19,6 +19,8 @@ csvpath = os.path.join(".","python-challenge","PythonChallenges","PyBank",'budge
 
 # Create lists
 total_months = []
+months = 0
+profit = 0
 total_profit = []
 monthly_change = []
 
@@ -31,6 +33,9 @@ with open(csvpath, newline='') as csvfile:
     # Go through file and add all the numbers in the second column to get Total Net Profit for entire data set
     csv_header = next(csvreader)
     for row in csv.reader(csvfile):
+        months = months + 1
+        # profit = profit + int(row[1])
+
         total_months.append(row[0]) 
         total_profit.append(int(row[1]))
 
@@ -42,15 +47,26 @@ with open(csvpath, newline='') as csvfile:
     max_increase_change = max(monthly_change)
     max_decrease_change = min(monthly_change)
 
+    # print(monthly_change.index(max(monthly_change))) #Position of Greatest Increase in Profits
+    # print(monthly_change.index(min(monthly_change))) #Position of Greatest Decrease in Profits
+
+    max_position = (monthly_change.index(max(monthly_change)))
+    min_position = (monthly_change.index(min(monthly_change)))
+
+    total_months.pop(0)
+    
+    # print(total_months[max_position])
+    # print(total_months[min_position])
+
 # -----------------------------------------------------------------------
 # Print Financial Analysis Summary
 print("Financial Analysis")
 print("------------------------")
-print(f"Total Months: {len(total_months)}")
+print(f"Total Months: {(months)}")
 print(f"Total: ${sum(total_profit)}")
 print(f"Average Change: ${round(sum(monthly_change)/len(monthly_change),2)}") 
-print(f"Greatest Increase in Profits: Feb-2012 (${(str(max_increase_change))})")
-print(f"Greatest Decrease in Profits: Sep-2013 (${(str(max_decrease_change))})")
+print(f"Greatest Increase in Profits: {(total_months[max_position])} (${(str(max_increase_change))})")
+print(f"Greatest Decrease in Profits: {(total_months[min_position])} (${(str(max_decrease_change))})")
 
 # -----------------------------------------------------------------------
 # Specify the file to write to
@@ -71,7 +87,7 @@ with open(output_path,'w', newline='') as csvfile:
     csvwriter.writerow([f"Total Months: {round(len(total_months))}"])
     csvwriter.writerow([f"Total: $ {sum(total_profit)}"])
     csvwriter.writerow([f"Average Change: $ {round(sum(monthly_change)/len(monthly_change),2)}"])
-    csvwriter.writerow([f"Greatest Increase in Profits: Feb-2012 (${(str(max_increase_change))})"])
-    csvwriter.writerow([f"Greatest Increase in Profits: Sep-2013 (${(str(max_decrease_change))})"])
+    csvwriter.writerow([f"Greatest Increase in Profits: {(total_months[max_position])} (${(str(max_increase_change))})"])
+    csvwriter.writerow([f"Greatest Increase in Profits: {(total_months[min_position])} (${(str(max_decrease_change))})"])
 
    
