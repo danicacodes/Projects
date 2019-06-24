@@ -26,8 +26,8 @@ DROP TABLE titles;
 -- Create Tables
 -- Import Data Using Import/Export Option in PgAdmin
 CREATE TABLE "departments" (
-	"dept_no" VARCHAR(10) NOT NULL,
-	"dept_name" VARCHAR(30) NOT NULL,
+	"dept_no" VARCHAR NOT NULL,
+	"dept_name" VARCHAR NOT NULL,
 	CONSTRAINT "pk_departments" PRIMARY KEY (
 	"dept_no"
 	)
@@ -37,7 +37,7 @@ SELECT * FROM departments;
 
 CREATE TABLE "dept_emp" (
 	"emp_no" INT NOT NULL,
-	"dept_no" VARCHAR(10) NOT NULL,
+	"dept_no" VARCHAR NOT NULL,
 	"from_date" DATE NOT NULL,
 	"to_date" DATE NOT NULL
 );
