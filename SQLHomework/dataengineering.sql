@@ -16,6 +16,7 @@ COMMENT ON DATABASE "Employee80s90s_db"
 	
 --Data Engineering--
 --Drop Tables if Existing
+
 DROP TABLE departments;
 DROP TABLE dept_emp;
 DROP TABLE dept_manager;
@@ -59,7 +60,10 @@ CREATE TABLE "employees" (
 	"first_name" VARCHAR NOT NULL,
 	"last_name" VARCHAR NOT NULL,
 	"gender" VARCHAR NOT NULL,
-	"hire_date" DATE NOT NULL
+	"hire_date" DATE NOT NULL,
+	CONSTRAINT "pk_employees" PRIMARY KEY (
+	"emp_no"
+	)
 );
 
 SELECT * FROM employees;
@@ -81,6 +85,25 @@ CREATE TABLE "titles" (
 );
 
 SELECT * FROM titles;
+
+-- Create Foreign Keys
+ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
+ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_dept_no" FOREIGN KEY("dept_no")
+REFERENCES "departments" ("dept_no");
+
+ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_dept_no" FOREIGN KEY("dept_no")
+REFERENCES "departments" ("dept_no");
+
+ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
+ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
+ALTER TABLE "titles" ADD CONSTRAINT "fk_titles_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
 
 
 
