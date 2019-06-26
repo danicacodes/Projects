@@ -74,6 +74,38 @@ COMMENT ON DATABASE "Employee80s90s_db"
 	WHERE e.first_name = 'Hercules'
 	AND e.last_name LIKE 'B%';
 	
+	-- 6. List all employees in the Sales Department, including their employee number, last name, first name
+	-- and department name
+	-- Results: 52,245 rows affected
+	SELECT de.emp_no AS Employee_Number, e.last_name AS Last_Name, e.first_name AS First_Name, d.dept_name AS Department_Name   
+	FROM dept_emp de
+	JOIN employees e
+	ON (de.emp_no = e.emp_no)
+		JOIN departments d
+		ON (de.dept_no = d.dept_no)
+	WHERE dept_name = 'Sales';
+	
+	-- 7. List all employees in the Sales and Development departments, including their employee number, last name, first name,
+	-- and, department name.
+	-- Results: 137,952 rows affected
+	SELECT de.emp_no AS Employee_Number, e.last_name AS Last_Name, e.first_name AS First_Name, d.dept_name AS Department_Name   
+	FROM dept_emp de
+	JOIN employees e
+	ON (de.emp_no = e.emp_no)
+		JOIN departments d
+		ON (de.dept_no = d.dept_no)
+	WHERE dept_name = 'Sales' OR dept_name = 'Development';
+	
+	-- 8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name
+	-- Results: 1,638 rows affected
+	SELECT last_name,
+	COUNT (last_name)
+	FROM employees
+	GROUP BY last_name
+	ORDER BY
+	COUNT(last_name) DESC;
+
+	
 	
 	
 	
