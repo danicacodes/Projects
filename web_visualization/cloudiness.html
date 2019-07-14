@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Latitude Visualization & Analysis Dashboard</title>
+
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="style.css">
+      
+      </head>
+
+    <body>
+        <!--Navigation-->
+        <div class="navigation">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Latitude</a>
+                        
+                        <!--Drop Down Menu-->
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                               href="#" role="button" aria-haspopup="true" aria-expanded="false" id='navbarNavDropdownMenuLink'>
+                                               Plots
+                                            </a>
+
+                                            <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="max_temperature.html">Max Temperature</a></li>
+                                                    <li><a class="dropdown-item" href="humidity.html">Humidity</a></li>
+                                                    <li><a class="dropdown-item" href="cloudiness.html">Cloudiness</a></li>
+                                                    <li><a class="dropdown-item" href="wind_speed.html">Wind Speed</a></li> 
+                                            </ul>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="comparisons.html">Comparison</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="data.html">Data</a>
+                                    </li>
+                               
+                            </ul>
+                        </div> <!--Closes Drop Down Menu-->
+                </nav>
+        </div> <!--Closes Navigation Div-->
+        <!---------------------------------------------------------------------------------------------------------------------->
+        <!--Max Temperature & Graphs-->
+        <div class="container"> <!--Fixed width container with widths determined by screen sites. Equal margin on left & right-->
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <!--Max Temperature (Left Box)-->
+                    <div class="box" style="padding-bottom: 5px">
+                        <h3 class="title">Cloudiness</h3>
+                        <hr>
+                        <img src="Resources/assets/images/Fig3.png" alt="City Latitude vs. Cloudiness(01/05/17)">
+                        <hr>
+
+                        <p>There is no strong relationship between latitude and cloudiness, however, it is interesting 
+                            to see that a strong band of cities sits at 0, 80, and 100% cloudiness.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12">
+                    <!--Other Graphs (Right Box)-->
+                    <div class="box">
+                        <h5 class="title">Visualizations</h5>
+                    <hr>
+
+                    <div class="container">
+                        
+                        <div class="row" style="padding-bottom: 30px;">
+                        <div class="col-lg-6">
+                            <a href="max_temperature.html">
+                                <img class="panel active" src="Resources/assets/images/Fig1.png" alt="City Latitude vs. Max Temperature(01/05/17)">
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                                <a href="humidity.html">
+                                    <img class="panel active" src="Resources/assets/images/Fig2.png" alt="City Latitude vs. Humidity(01/05/17)">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-bottom: 30px;">
+                                <div class="col-lg-6">
+                                    <a href="cloudiness.html">
+                                        <img class="panel active" src="Resources/assets/images/Fig3.png" alt="City Latitude vs. Cloudiness(01/05/17)">
+                                    </a>
+                                </div>
+                                <div class="col-lg-6">
+                                        <a href="wind_speed.html">
+                                            <img class="panel active" src="Resources/assets/images/Fig4.png" alt="City Latitude vs. Wind Speed(01/05/17)">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+        </div>
+                    
+    </div>
+</div>
+
+
+        <!--Footer-->
+        <footer>
+            <div class="container"></div>
+            <div class="footer">Copyright &copy; Danica Jade Rios 2019 
+            </div>
+            <a style="color: white; font-size: 10px" href="https://spcs.richmond.edu/noncredit/programs/data-analytics/" data-toggle="popover" title="UR Data Analytics" data-content="University of Richmond Data Analytics Bootcamp">UR Data Analytics Bootcamp</a>
+        </footer>
+    </body>
+</html>
