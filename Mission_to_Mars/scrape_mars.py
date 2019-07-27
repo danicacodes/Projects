@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
 
 
 # Declare Dependancies
@@ -11,8 +10,6 @@ from splinter import Browser
 import pandas as pd
 import requests
 
-
-# In[2]:
 
 #initialize browser
 def init_browser():
@@ -53,8 +50,6 @@ def scrape_mars_news():
 
 # ### JPL Mars Space Images - Featured Image
 
-# In[5]:
-
 def scrape_mars_image():
         try:
                 # Initialize Browser
@@ -84,11 +79,7 @@ def scrape_mars_image():
         finally: 
                 browser.quit()
 
-# In[11]:
-
 ### Mars Weather
-
-# In[12]:
 
 def scrape_mars_weather():
         try:
@@ -130,8 +121,6 @@ def scrape_mars_weather():
 
 #### Mars Facts
 
-# In[17]:
-
 def scrape_mars_facts():
         # Visit url for Mars Facts
         url_facts = 'https://space-facts.com/mars/'
@@ -140,8 +129,6 @@ def scrape_mars_facts():
 
         # Mars Data Only 
         mars_df = mars_facts[1]
-
-# In[19]:
 
         # Adds Columns to Data Frame
         #mars_df = url_facts[1]
@@ -158,8 +145,6 @@ def scrape_mars_facts():
 
 # ### Mars Hemispheres
 
-# In[20]:
-
 def scrape_mars_hemispheres():
         try:
                 # Initialize Browser
@@ -171,42 +156,30 @@ def scrape_mars_hemispheres():
                 browser.visit(hemispheres)
 
 
-# In[21]:
-
 
                 # HTML Object
                 html_hemisphere = browser.html
 
-
-# In[22]:
 
 
                 # Use Beautiful Soup to parse HTML
                 soup = bs(html_hemisphere, 'html.parser')
 
 
-# In[23]:
-
 
                 # Find all elements with a class of item
                 items = soup.find_all('div', class_='item')
 
-
-# In[24]:
 
 
                 #Define empty list
                 hemisphere_images = []
 
 
-# In[25]:
-
 
                 # Main URL used to append images URL
                 hemisphere_url = 'https://astrogeology.usgs.gov'
 
-
-# In[26]:
 
 
                 # Loop through the items
