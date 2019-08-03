@@ -93,19 +93,19 @@ select {
 
 /* The styles for the parallax */
 .hero {
-  position: relative;
-  height: 550px;
+  position: top;
+  height: 250px;
   padding: 20px;
-  margin: 0;
+  margin: 50;
   background: black;
   background-image: url("../images/nasa.jpg");
   background-attachment: fixed;
-  background-position: bottom center;
+  background-position: center;
   background-size: cover;
 }
 
 .hero h1 {
-  margin-top: 200px;
+  margin-top: 100px;
   font-size: 0.1rem;
   animation: title 1.2s forwards linear;
 }
