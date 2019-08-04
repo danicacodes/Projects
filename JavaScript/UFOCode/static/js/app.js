@@ -75,7 +75,7 @@ button.on("click", function() {
         return(filterData.statefilter == newState);
         });
 
-        console.log(outputDataState);
+        console.log(outputData);
         outputData.forEach((ufo_sightings) => {
             console.log(ufo_sightings);
             var row = tbody.append('tr'); //appending tr tag that doesn't exist so it is creating one
@@ -114,4 +114,3 @@ button.on("click", function() {
     };
     
 });// Closes button click
-
