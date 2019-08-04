@@ -32,6 +32,7 @@ init();
 // YOUR CODE HERE!
 button.on("click", function() {
     //console.log("Button Clicked!");
+    d3.event.preventDefault();
     tbody.html("");
 
     //Date Filter
@@ -41,7 +42,7 @@ button.on("click", function() {
     
     if (newdate !=''){
         console.log("Button Clicked for Date!");
-        //tbody.html("");
+        tbody.html("");
 
         var newdate = d3.select('#datetime').property("value");
         console.log(newdate);
@@ -67,14 +68,14 @@ button.on("click", function() {
         console.log("Button Clicked for State!");
         tbody.html('');
 
-        var newState = d3.select('#statefilter').property('value');
+        var newState = d3.select('#statefilter').property("value");
         console.log(newState);
 
         var outputData = data.filter(function(filterData) {
-            return(filterData.statefilter == newState);
+        return(filterData.statefilter == newState);
         });
 
-        console.log(outputData);
+        console.log(outputDataState);
         outputData.forEach((ufo_sightings) => {
             console.log(ufo_sightings);
             var row = tbody.append('tr'); //appending tr tag that doesn't exist so it is creating one
@@ -96,7 +97,7 @@ button.on("click", function() {
         console.log(newShape);
 
         var outputData = data.filter(function(filterData) {
-            return(filterData.shapefilter == newShape);
+        return(filterData.shapefilter == newShape);
         });
 
         console.log(outputData);
