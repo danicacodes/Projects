@@ -223,3 +223,9 @@ select {
     opacity: 1;
   }
 }
+
+a {
+  color: white;
+  position: relative; 
+  left: 16px
+}
