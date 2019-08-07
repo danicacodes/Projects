@@ -8,9 +8,9 @@
 //var duration = d3.select('#duration');
 //var comments = d3.select('#comments');
 
-
-var button = d3.select('#filter-btn');
-
+// Use let instead of var to declare a variable in code to show error code 'undefined'    
+//var button = d3.select('#filter-btn');
+let button = d3.select('#filter-btn');
 
 // from data.js
 var tableData = data;
@@ -39,28 +39,29 @@ button.on("click", function() {
     tbody.html("");
 
     //Date Filter
-    var newdate = d3.select('#datetime').property("value");
-    var newState = d3.select('#statefilter').property("value");
-    var newShape = d3.select('#shapefilter').property("value");
+    // Use let instead of var to declare a variable in code to show error code 'undefined'
+    let newdate = d3.select('#datetime').property("value");
+    let newState = d3.select('#statefilter').property("value");
+    let newShape = d3.select('#shapefilter').property("value");
     
     if (newdate !=''){
         console.log("Button Clicked for Date!");
         tbody.html("");
 
-        var newdate = d3.select('#datetime').property("value");
+        let newdate = d3.select('#datetime').property("value");
         console.log(newdate);
 
-        var outputData = data.filter(function(filterData) {
+        let outputData = data.filter(function(filterData) {
         return(filterData.datetime === newdate);
     });
     
         console.log(outputData);
         outputData.forEach((ufo_sightings) => {
             console.log(ufo_sightings);
-            var row = tbody.append('tr'); //appending tr tag that doesn't exist so it is creating one
+            let row = tbody.append('tr'); //appending tr tag that doesn't exist so it is creating one
             Object.entries(ufo_sightings).forEach(([key, value]) => {
                 console.log(key, value);
-                var cell = row.append('td');
+                let cell = row.append('td');
                 cell.text(value);
     
             });
@@ -71,22 +72,22 @@ button.on("click", function() {
         console.log("Button Clicked for State!");
         // tbody.html('');
 
-        var newState = d3.select('#statefilter').property("value");
+        let newState = d3.select('#statefilter').property("value");
         console.log(newState);
-
-        var outputData = data.filter(function(filterData) {
-        return(filterData.statefilter === 'newState');
+        
+        let outputData = data.filter(function(filterData) {
+            console.log(filterData);
+            return(filterData.state === newState);
+        
         });
 
         console.log(outputData); // This is returning an empty array
-
-
         outputData.forEach((ufo_sightings) => {
             console.log(ufo_sightings);
-            var row = tbody.append('tr'); //appending tr tag that doesn't exist so it is creating one
+            let row = tbody.append('tr'); //appending tr tag that doesn't exist so it is creating one
             Object.entries(ufo_sightings).forEach(([key, value]) => {
                 console.log(key, value);
-                var cell = row.append('td');
+                let cell = row.append('td');
                 cell.text(value);
     
             });
@@ -98,20 +99,20 @@ button.on("click", function() {
         console.log('Button Clicked for Shape!');
         // tbody.html('');
 
-        var newShape = d3.select('#shapefilter').property('value');
+        let newShape = d3.select('#shapefilter').property('value');
         console.log(newShape);
 
-        var outputData = data.filter(function(filterData) {
-        return(filterData.shapefilter == newShape);
+        let outputData = data.filter(function(filterData) {
+        return(filterData.shape == newShape);
         });
 
         console.log(outputData);
         outputData.forEach((ufo_sightings) => {
             console.log(ufo_sightings);
-            var row = tbody.append('tr'); //appending tr tag that doesn't exist so it is creating one
+            let row = tbody.append('tr'); //appending tr tag that doesn't exist so it is creating one
             Object.entries(ufo_sightings).forEach(([key, value]) => {
                 console.log(key, value);
-                var cell = row.append('td');
+                let cell = row.append('td');
                 cell.text(value);
     
             });
