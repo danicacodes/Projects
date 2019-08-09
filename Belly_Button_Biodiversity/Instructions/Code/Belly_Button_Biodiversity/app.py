@@ -65,7 +65,7 @@ def sample_metadata(sample):
 
     results = db.session.query(*sel).filter(Samples_Metadata.sample == sample).all()
 
-    # Create a dictionary entry for each row of metadata information
+    # Create dictionary for each row of metadata information
     sample_metadata = {}
     for result in results:
         sample_metadata["sample"] = result[0]
