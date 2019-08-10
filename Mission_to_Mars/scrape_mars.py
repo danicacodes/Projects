@@ -15,8 +15,9 @@ import requests
 #initialize browser
 def scrape():
         # Choose executable path to driver (Windows User)
-        executable_path = {"executable_path": "chromedriver.exe"}
-        browser = Browser("chrome", **executable_path, headless=False)
+        #executable_path = {"executable_path": "chromedriver.exe"}
+        #browser = Browser("chrome", **executable_path, headless=False)
+        browser = Browser("chrome", executable_path = 'chromedriver.exe', headless=False)
         news_title, news_p = scrape_mars_news(browser)
         #featured_image_url = scrape_mars_image(browser)
 
@@ -67,7 +68,7 @@ def scrape_mars_news(browser):
 def scrape_mars_image(browser):
         # try:
         # Initialize Browser
-        # browser = init_browser()
+        #browser = init_browser()
 
         featured_image_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
         browser.visit(featured_image_url)
@@ -98,7 +99,7 @@ def scrape_mars_image(browser):
 def scrape_mars_weather(browser):
         # try:
         # # Initialize Browser
-        # browser = init_browser()
+        #browser = init_browser()
 
         # Visit the Mars Weather Twitter Account
         url_weather = 'https://twitter.com/marswxreport?lang=en'
@@ -160,13 +161,13 @@ def scrape_mars_facts():
 
 # ### Mars Hemispheres
 
-def scrape_mars_hemispheres():
-        # try:
-        #         # # Initialize Browser
-                # browser = init_browser()
+def scrape_mars_hemispheres(browser):
+        #try:
+        #  # Initialize Browser
+        #browser = init_browser()
 
 
-        # Visit the USGS Astrogeology site to obtain high resolution images for each of Mar's hemispheres.
+                # Visit the USGS Astrogeology site to obtain high resolution images for each of Mar's hemispheres.
         hemispheres = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
         browser.visit(hemispheres)
 
@@ -225,4 +226,7 @@ def scrape_mars_hemispheres():
         return hemisphere_images
 # finally:
 #         browser.quit()
-                
+
+if __name__ == "__main__":
+
+        print(scrape())

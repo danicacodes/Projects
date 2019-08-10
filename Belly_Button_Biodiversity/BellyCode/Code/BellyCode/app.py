@@ -12,6 +12,7 @@ from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
+# Sends the __name__ to FlaskApi constructor to instantiate Flask API object, which will be used across the application
 app = Flask(__name__)
 
 
