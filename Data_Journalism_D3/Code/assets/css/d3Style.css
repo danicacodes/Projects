@@ -41,6 +41,8 @@
 }
 
 .d3-tip {
+  position: absolute;
+  pointer-events: none!important;
   padding: 6px;
   font-size: 12px;
   line-height: 1;
